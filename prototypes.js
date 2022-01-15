@@ -4,12 +4,19 @@
 const animal={
     eats:true,
     walk(){
-        console.log("Animal walk");
+        if(!this.isSleeping){
+             console.log("I walk");
+        }
+       
+    },
+    sleep(){
+        this.isSleeping=true;
     }
 };
 
 const rabbit={
     jumps:true,
+    name:'White Rabbit',
     __proto__: animal
 };
 
@@ -61,4 +68,36 @@ console.log(admin.fullName);
 admin.fullName="Alice Cooper";
 console.log(admin.fullName)
 console.log(user.fullName)
+rabbit.sleep();
+console.log(rabbit.isSleeping);
+console.log(animal.isSleeping); //undefined because no property in the prototype
 
+console.log(Object.keys(rabbit)); //returns only keys
+
+
+
+//challenge
+let head = {
+    glasses: 1
+  };
+  
+  let table = {
+    pen: 3,
+    __proto__:head
+  };
+  
+  let bed = {
+    sheet: 1,
+    pillow: 2,
+    __proto__:table
+  };
+  
+  let pockets = {
+    money: 2000,
+    __proto__:bed
+  };
+
+console.log(table.glasses)
+console.log(head.glasses)
+console.log(pockets.pen)
+console.log(bed.glasses)
