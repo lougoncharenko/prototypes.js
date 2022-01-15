@@ -101,3 +101,27 @@ console.log(table.glasses)
 console.log(head.glasses)
 console.log(pockets.pen)
 console.log(bed.glasses)
+
+//challenge 2
+let hamster={
+    stomach:[],
+
+    eat(food){
+        this.stomach=[food];
+    }
+};
+
+let speedy={
+    __proto__:hamster
+    
+};
+
+let lazy ={
+    __proto__: hamster
+}
+
+speedy.eat('apple');
+console.log(speedy.stomach);
+
+lazy.eat('prunes')
+console.log(lazy.stomach)
