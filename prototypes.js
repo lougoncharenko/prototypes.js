@@ -125,3 +125,43 @@ console.log(speedy.stomach);
 
 lazy.eat('prunes')
 console.log(lazy.stomach)
+
+
+
+//prototypes
+
+//create a constructor
+function Plant(){
+    this.country='Mexico';
+    this.isOrganic=true;
+}
+
+//add a method to the plant prototype property
+Plant.prototype.showNameAndColor= function(){
+    console.log(`I am a ${this.name} and my color is ${this.color}`);
+}
+
+//add another methid to the plant prototype property
+Plant.prototype.amIOrganic=function(){
+    if (this.isOrganic){
+        console.log('I am organic!');
+    }
+}
+
+// create another function
+function Fruit (fruitName, fruitColor){
+    this.name=fruitName;
+    this.color=fruitColor;
+}
+
+
+/*set fruit's protype to plant's constructor
+to inherit all of plant;s prototype methods and properties */
+Fruit.prototype=new Plant();
+
+//create a new object
+let aBanana= new Fruit('Banana', 'yellow');
+
+console.log(aBanana.name) //Banana
+console.log(aBanana.showNameAndColor());
+console.log(aBanana.amIOrganic())
