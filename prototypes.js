@@ -165,3 +165,18 @@ let aBanana= new Fruit('Banana', 'yellow');
 console.log(aBanana.name) //Banana
 console.log(aBanana.showNameAndColor());
 console.log(aBanana.amIOrganic())
+
+
+//prototype chain
+
+function People(){
+    this.superstar= "Michael Jackson";
+}
+
+People.prototype.athlete='Usian Bolt';
+
+let famousPerson= new People();
+famousPerson.superstar= 'Steve Jobs';
+
+console.log(famousPerson.superstar); //steve jobs
+console.log(famousPerson.athlete); //usian bolt
